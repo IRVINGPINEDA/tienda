@@ -1,0 +1,301 @@
+/* ===== ESTILO MODERNO TIENDA DE ELECTRÓNICOS ===== */
+
+/* === VARIABLES === */
+:root {
+    --color-primary: #0066ff;
+    --color-secondary: #65deff;
+    --color-accent: #00ffaa;
+    --color-danger: #ff4d4d;
+    --color-bg: #f5f7fa;
+    --color-card: rgba(255, 255, 255, 0.7);
+    --color-text-dark: #1e1e1e;
+    --color-text-light: #666;
+    --shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    --blur: 12px;
+    --radius: 16px;
+    --transition: all 0.3s ease;
+}
+
+/* === REINICIO GENERAL === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #e0eaff, #f9fcff);
+    color: var(--color-text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* === HEADER === */
+header {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(6px);
+}
+
+header h1 {
+    font-size: 1.7rem;
+    letter-spacing: 0.5px;
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* === BOTONES === */
+.btn {
+    border: none;
+    border-radius: var(--radius);
+    padding: 10px 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn.primary {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    color: white;
+}
+
+.btn.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn.success {
+    background: linear-gradient(90deg, #00cc66, #00ffaa);
+    color: #fff;
+}
+
+.btn.danger {
+    background: linear-gradient(90deg, #ff4d4d, #ff8080);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* === SECCIONES === */
+.section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: var(--color-card);
+    backdrop-filter: blur(var(--blur));
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.section:hover {
+    transform: translateY(-4px);
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+/* === PRODUCTOS === */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.8rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-align: center;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-6px) scale(1.02);
+}
+
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+}
+
+.product-card h3 {
+    color: var(--color-text-dark);
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.product-card p {
+    color: var(--color-text-light);
+    margin-bottom: 0.8rem;
+}
+
+/* === CARRITO === */
+.cart-items {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item span {
+    font-weight: 500;
+}
+
+.cart-total {
+    text-align: right;
+    margin-top: 1.2rem;
+    padding-top: 0.8rem;
+    border-top: 2px solid #ddd;
+}
+
+#empty-cart-message {
+    text-align: center;
+    color: var(--color-text-light);
+    font-style: italic;
+    padding: 1rem;
+}
+
+/* === MODAL === */
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: var(--radius);
+    width: 100%;
+    max-width: 400px;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.4s ease;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--color-text-light);
+    transition: var(--transition);
+}
+
+.close:hover {
+    color: var(--color-danger);
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    color: var(--color-text-dark);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: var(--transition);
+}
+
+input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.2);
+}
+
+.hidden {
+    display: none;
+}
+
+/* === FOOTER === */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: #fff;
+    box-shadow: 0 -3px 10px var(--shadow);
+    margin-top: auto;
+    color: var(--color-text-light);
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .user-section {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .section {
+        width: 95%;
+        padding: 1.2rem;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
